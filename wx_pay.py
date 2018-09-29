@@ -91,9 +91,7 @@ class WxPay(object):
 
 	def fetch_with_ssl(self, url, data, api_client_cert_path, api_client_key_path):
 		data = self.to_xml(data)
-		req = requests.post(url, data=data.encode(),
-							cert=(api_client_cert_path, api_client_key_path),
-							)
+		req = requests.post(url, data=data.encode(),cert=(api_client_cert_path, api_client_key_path),)
 		return self.to_dict(req.content)
 
 	def reply(self, msg, ok=True):
